@@ -5,16 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Tema2_CuadrosTexto"
         mc:Ignorable="d"
-        Title="MainWindow" Height="253.239" Width="328.138">
+        Title="Verificador" Height="253.239" Width="328.138" Icon="Assets/12.ico">
     <Grid>
-        <TextBlock HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="Nombre:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" Text="Apellido:" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Edad:" VerticalAlignment="Top"/>
-        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyDown="PulsadoF1"/>
-        <TextBox x:Name="ApellidoTextBox" HorizontalAlignment="Left" Height="23" Margin="10,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyDown="PulsadoF1"/>
-        <TextBox x:Name="EdadTextBox" HorizontalAlignment="Left" Height="23" Margin="10,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <TextBlock x:Name="AyudaNombreTextBlock" HorizontalAlignment="Left" Margin="145,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" Height="23"/>
-        <TextBlock x:Name="AyudaApellidoTextBlock" HorizontalAlignment="Left" Margin="145,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="92" Height="23"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="23*"/>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="282*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Left" Margin="10,25,0,0" TextWrapping="Wrap" Text="Nombre:" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,101,0,0" TextWrapping="Wrap" Text="Apellido:" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,155,0,0" TextWrapping="Wrap" Text="Edad:" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Height="23" Margin="10,46,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyDown="PulsadoF1" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="ApellidoTextBox" HorizontalAlignment="Left" Height="23" Margin="10,122,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" KeyDown="PulsadoF1" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="EdadTextBox" HorizontalAlignment="Left" Height="23" Margin="10,176,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="3" KeyDown="PulsadoF2"/>
+        <TextBlock x:Name="AyudaNombreTextBlock" HorizontalAlignment="Left" Margin="107,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="23" Grid.Column="2"><Span Foreground="#FFA31515" FontSize="12.6666666666667" FontFamily="Consolas"><Run Text="Inserte su nombre"/></Span></TextBlock>
+        <TextBlock x:Name="AyudaApellidoTextBlock" HorizontalAlignment="Left" Margin="107,122,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="23" Grid.Column="2"><Run Foreground="#FFA31515" FontSize="12.6666666666667" FontFamily="Consolas" Text="Inserte su "/><Run Foreground="#FFA31515" FontSize="12.6666666666667" FontFamily="Consolas" Text="apellido"/></TextBlock>
+        <TextBlock x:Name="AyudaEdadTextBlock" HorizontalAlignment="Left" Margin="107,176,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="149" Height="23" Grid.Column="2"><Run Foreground="#FFA31515" FontSize="12.6666666666667" FontFamily="Consolas" Text="Inserte un numero"/></TextBlock>
 
     </Grid>
 </Window>

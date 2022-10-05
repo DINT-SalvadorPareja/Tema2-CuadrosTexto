@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -23,27 +24,65 @@ namespace Tema2_CuadrosTexto
         public MainWindow()
         {
             InitializeComponent();
-            
+            NombreTextBox.Tag = 1;
+            ApellidoTextBox.Tag = 2;
+            AyudaNombreTextBlock.Visibility = Visibility.Hidden;
+            AyudaApellidoTextBlock.Visibility = Visibility.Hidden;
+            AyudaEdadTextBlock.Visibility = Visibility.Hidden;
+
+
         }
 
         private void PulsadoF1(object sender, KeyEventArgs e)
         {
-            AyudaApellidoTextBlock.Text = "";
-            AyudaNombreTextBlock.Text = "";
-            Random rnd = new Random();
+            
+
+            TextBox cajaTexto = sender as TextBox;
+
             if (Keyboard.IsKeyDown(Key.F1))
             {
-                int random = rnd.Next(1, 3);
-                if(random == 1)
+                switch(cajaTexto.Tag)
                 {
-                    AyudaApellidoTextBlock.Text = "Introduzca su apellido";
-                }
-                else if(random == 2)
-                {
-                    AyudaNombreTextBlock.Text = "Introduzca su nombre";
+                    case 1:
+                        AyudaNombreTextBlock.Visibility = Visibility.Visible;
+                        cajaTexto.Tag = 3;
+                        break;
+                    case 2:
+                        AyudaApellidoTextBlock.Visibility = Visibility.Visible;
+                        cajaTexto.Tag = 4;
+                        break;
+                    case 3:
+                        AyudaNombreTextBlock.Visibility = Visibility.Hidden;
+                        
+                        cajaTexto.Tag = 1;
+                        break;
+                    case 4:
+                        
+                        AyudaApellidoTextBlock.Visibility = Visibility.Hidden;
+                        cajaTexto.Tag = 2;
+                        break;
                 }
                 
             }
+        }
+
+        private void PulsadoF2(object sender, KeyEventArgs e)
+        {
+            if (Keyboard.IsKeyDown(Key.F2))
+            {
+                
+                if(Regex.IsMatch(EdadTextBox.Text, @"\d") == false)
+                {
+                    AyudaEdadTextBlock.Visibility = Visibility.Visible;
+
+                }
+                else
+                {
+                    AyudaEdadTextBlock.Visibility = Visibility.Hidden;
+                }
+
+            }
+
         }
     }
 }
